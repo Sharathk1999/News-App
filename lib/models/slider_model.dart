@@ -1,8 +1,16 @@
 class SliderModel {
-  final String? name;
-  final String? image;
+   String? author;
+   String? title;
+   String? description;
+   String? newsUrl;
+   String? imgUrl;
+   String? content;
   SliderModel({
-    required this.name,
-    required this.image,
+    this.author,
+    this.title,
+    this.description,
+    this.newsUrl,
+    this.imgUrl,
+    this.content,
   });
 }

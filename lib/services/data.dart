@@ -1,5 +1,7 @@
 import 'package:the_news_app/models/category_model.dart';
-import 'package:the_news_app/models/slider_model.dart';
+
+
+const String api = "4189d7a7e2254f4d8f3671e4010372b0";
 
 List<CategoryModel> getCategories(){
   List<CategoryModel> categories = [
@@ -12,13 +14,3 @@ List<CategoryModel> getCategories(){
   return categories;
 }
 
-List<SliderModel> getSliderItems(){
-  List<SliderModel> sliderItems = [
-   SliderModel(name: "Woman undergoing Agniveer training dies by suicide at Navy hostel in Mumbai", image: "assets/images/news-bg.jpg"),
-   SliderModel(name: "Shinde govt stable, enjoys majority support: Speaker", image: "assets/images/news-bg.jpg"),
-   SliderModel(name: "Worker falls to death from 14 floors; FIR on 2 for negligence", image: "assets/images/news-bg.jpg"),
-   SliderModel(name: "Man ill-treating mother should leave her flat, Bombay HC upholds order", image: "assets/images/news-bg.jpg"),
-   SliderModel(name: "Mumbai banking on all-Indian squad in bid to end losing run", image: "assets/images/news-bg.jpg"),
-  ];
-  return sliderItems;
-}
