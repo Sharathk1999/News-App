@@ -34,11 +34,9 @@ class _ArticleWebViewScreenState extends State<ArticleWebViewScreen> {
           ],
         ),
       ),
-      body: Container(
-        child: WebView(
-          initialUrl: widget.blogUrl,
-          javascriptMode: JavascriptMode.unrestricted,
-        ),
+      body: WebView(
+        initialUrl: widget.blogUrl,
+        javascriptMode: JavascriptMode.unrestricted,
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:the_news_app/models/category_model.dart';
 
 
-const String api = "4189d7a7e2254f4d8f3671e4010372b0";
+
 
 List<CategoryModel> getCategories(){
   List<CategoryModel> categories = [

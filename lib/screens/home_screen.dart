@@ -9,6 +9,7 @@ import 'package:the_news_app/screens/all_news_screen.dart';
 import 'package:the_news_app/services/data.dart';
 import 'package:the_news_app/services/news.dart';
 import 'package:the_news_app/services/slider_data.dart';
+import 'package:the_news_app/utils/dot_loader_widget.dart';
 import 'package:the_news_app/widgets/blogs_title_widget.dart';
 import 'package:the_news_app/widgets/category_tile_widget.dart';
 
@@ -75,9 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: _isLoading
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
+          ? const LoaderWidget()
           : SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -195,20 +194,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      physics: const ClampingScrollPhysics(),
-                      itemCount: articles.length,
-                      itemBuilder: (context, index) {
-                        return BlogTileWidget(
-                          imgUrl: articles[index].imgUrl!,
-                          title: articles[index].title!,
-                          description: articles[index].description!,
-                          newsUrl: articles[index].newsUrl!,
-                        );
-                      },
-                    ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const ClampingScrollPhysics(),
+                    itemCount: articles.length,
+                    itemBuilder: (context, index) {
+                      return BlogTileWidget(
+                        imgUrl: articles[index].imgUrl!,
+                        title: articles[index].title!,
+                        description: articles[index].description!,
+                        newsUrl: articles[index].newsUrl!,
+                      );
+                    },
                   )
                 ],
               ),

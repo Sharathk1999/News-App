@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_news_app/models/show_category_model.dart';
 import 'package:the_news_app/services/show_category_data.dart';
+import 'package:the_news_app/utils/dot_loader_widget.dart';
 import 'package:the_news_app/widgets/show_category_widget.dart';
 
 class CategoryNewsScreen extends StatefulWidget {
@@ -51,24 +52,20 @@ class _CategoryNewsScreenState extends State<CategoryNewsScreen> {
         ),
       ),
       body: _isLoading
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : Container(
-              child: ListView.builder(
-                itemCount: categoryList.length,
-                shrinkWrap: true,
-                physics: const ClampingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return ShowCategoryWidget(
-                    imgUrl: categoryList[index].imgUrl!,
-                    description: categoryList[index].description!,
-                    title: categoryList[index].title!,
-                    newsUrl: categoryList[index].newsUrl!,
-                  );
-                },
-              ),
-            ),
+          ? const LoaderWidget()
+          : ListView.builder(
+            itemCount: categoryList.length,
+            shrinkWrap: true,
+            physics: const ClampingScrollPhysics(),
+            itemBuilder: (context, index) {
+              return ShowCategoryWidget(
+                imgUrl: categoryList[index].imgUrl!,
+                description: categoryList[index].description!,
+                title: categoryList[index].title!,
+                newsUrl: categoryList[index].newsUrl!,
+              );
+            },
+          ),
     );
   }
 }

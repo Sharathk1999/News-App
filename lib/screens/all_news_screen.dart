@@ -3,6 +3,7 @@ import 'package:the_news_app/models/article_model.dart';
 import 'package:the_news_app/models/slider_model.dart';
 import 'package:the_news_app/services/news.dart';
 import 'package:the_news_app/services/slider_data.dart';
+import 'package:the_news_app/utils/dot_loader_widget.dart';
 import 'package:the_news_app/widgets/show_all_news.dart';
 
 class AllNewsScreen extends StatefulWidget {
@@ -67,29 +68,27 @@ class _AllNewsScreenState extends State<AllNewsScreen> {
           style: const TextStyle(color: Colors.black, fontFamily: 'Hind'),
         ),
       ),
-      body:_isLoading ? const Center(child: CircularProgressIndicator(),): Container(
-        child: ListView.builder(
-          itemCount:
-              widget.news == "Breaking" ? sliderItems.length : articles.length,
-          shrinkWrap: true,
-          physics: const ClampingScrollPhysics(),
-          itemBuilder: (context, index) {
-            return ShowAllNews(
-              title: widget.news == "Breaking"
-                  ? sliderItems[index].title!
-                  : articles[index].title!,
-              description: widget.news == "Breaking"
-                  ? sliderItems[index].description!
-                  : articles[index].description!,
-              imgUrl: widget.news == "Breaking"
-                  ? sliderItems[index].imgUrl!
-                  : articles[index].imgUrl!,
-              newsUrl: widget.news == "Breaking"
-                  ? sliderItems[index].newsUrl!
-                  : articles[index].newsUrl!,
-            );
-          },
-        ),
+      body:_isLoading ? const LoaderWidget(): ListView.builder(
+        itemCount:
+            widget.news == "Breaking" ? sliderItems.length : articles.length,
+        shrinkWrap: true,
+        physics: const ClampingScrollPhysics(),
+        itemBuilder: (context, index) {
+          return ShowAllNews(
+            title: widget.news == "Breaking"
+                ? sliderItems[index].title!
+                : articles[index].title!,
+            description: widget.news == "Breaking"
+                ? sliderItems[index].description!
+                : articles[index].description!,
+            imgUrl: widget.news == "Breaking"
+                ? sliderItems[index].imgUrl!
+                : articles[index].imgUrl!,
+            newsUrl: widget.news == "Breaking"
+                ? sliderItems[index].newsUrl!
+                : articles[index].newsUrl!,
+          );
+        },
       ),
     );
   }

@@ -30,32 +30,30 @@ class BlogTileWidget extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: CachedNetworkImage(
-                      height: 120,
-                      width: 120,
-                      fit: BoxFit.cover,
-                      imageUrl: imgUrl,
-                      errorWidget: (context, url, error) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.grey.withOpacity(0.2),
-                          ),
-                          child:const Center(
-                            child: Text(
-                              "No Image",
-                              style: TextStyle(
-                                fontFamily: 'Hind',
-                                fontSize: 18,
-                              ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: CachedNetworkImage(
+                    height: 120,
+                    width: 120,
+                    fit: BoxFit.cover,
+                    imageUrl: imgUrl,
+                    errorWidget: (context, url, error) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.grey.withOpacity(0.2),
+                        ),
+                        child:const Center(
+                          child: Text(
+                            "No Image",
+                            style: TextStyle(
+                              fontFamily: 'Hind',
+                              fontSize: 18,
                             ),
                           ),
-                        );
-                      },
-                    ),
+                        ),
+                      );
+                    },
                   ),
                 ),
                 const SizedBox(
@@ -64,7 +62,7 @@ class BlogTileWidget extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      Container(
+                      SizedBox(
                         width: MediaQuery.of(context).size.width / 1.8,
                         child: Text(
                           title,
@@ -79,7 +77,7 @@ class BlogTileWidget extends StatelessWidget {
                       const SizedBox(
                         height: 5,
                       ),
-                      Container(
+                      SizedBox(
                         width: MediaQuery.of(context).size.width / 1.8,
                         child: Text(
                           description,
